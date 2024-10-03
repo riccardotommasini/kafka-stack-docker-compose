@@ -71,3 +71,20 @@ services:
     depends_on:
       - zoo1
 
+  postgresql:
+    hostname: postgresql
+    container_name: postgresql
+    extends:
+      service: postgresql
+      file: conduktor.yml 
+            
+  conduktor-console:
+    hostname: conduktor-console
+    container_name: conduktor-console
+    extends:
+      service: conduktor-console
+      file: conduktor.yml
+
+volumes:
+  pg_data: {}
+  conduktor_data: {}
